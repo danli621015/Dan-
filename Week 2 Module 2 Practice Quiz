@@ -1,0 +1,298 @@
+Module 2 Practice Quiz
+Total points 11
+Question 1
+For all the questions in this practice set, you will be using the Salary by Job Range Table. This is a
+single table titled: salary_range_by_job_classification. This table contains the
+following columns:
+
+SetID
+
+Job_Code 
+
+Eff_Date 
+
+Sal_End_Date 
+
+Salary_setID 
+
+Sal_Plan 
+
+Grade 
+
+Step 
+
+Biweekly_High_Rate 
+
+Biweekly_Low_Rate 
+
+Union_Code 
+
+Extended_Step 
+
+Pay_Type
+
+Please refer to this information to write queries to answer the questions. Are you ready to get started?
+
+Yes, I am ready to begin.
+No, I am not ready to begin.
+
+Correct
+Great, let's get started!
+
+
+Question 2
+Find the distinct values for the extended step. The code has been started for you, but you will need to 
+program the third line yourself before running the query.
+
+
+SELECT 
+distinct Extended_step
+from salary_range_by_job_classification
+
++---------------+
+| Extended_Step |
++---------------+
+| 0             |
+| 11            |
+| 6             |
+| 2             |
++---------------+
+Which of the following values is not a distinct value?
+
+5 correct 
+2
+6
+0
+11
+Correct
+Here is what you should have in your script. If you programmed correctly, you will have seen that this number is not a distinct value.
+
+SELECT 
+distinct Extended_step
+from salary_range_by_job_classification;
+
+Question 3
+Excluding $0.00, what is the minimum bi-weekly high rate of pay (please include the dollar sign and decimal point in your answer)? The code has been started for you, but you will need to add onto the last line of code to get the correct answer.
+
+Select 
+min(Biweekly_high_Rate)
+From salary_range_by_job_classification
+where Biweekly_high_Rate <> '$0.00'
+
++-------------------------+
+| min(Biweekly_high_Rate) |
++-------------------------+
+| $100.00                 |
++-------------------------+
+$100.00
+Correct
+Great job! You knew how to complete the query to find the answer! 
+
+Question 4
+What is the maximum biweekly high rate of pay (please include the dollar sign and decimal point in your answer)? The code has been started for you, but you will need to add onto the last line of code to get the correct answer.
+
+SELECT 
+Max(Biweekly_high_Rate) 
+from salary_range_by_job_classification
++-------------------------+
+| Max(Biweekly_high_Rate) |
++-------------------------+
+| $9726.38                |
++-------------------------+
+$9726.38
+Correct
+
+Question 5
+What is the pay type for all the job codes that start with '03'? The code has been started for you, but you will need to program the fourth and fifth lines yourself before running the query.
+
+Select
+job_code,
+pay_type
+From salary_range_by_job_classification
+where job_code like '03%'
++----------+----------+
+| Job_Code | Pay_Type |
++----------+----------+
+| 0380     | B        |
+| 0381     | B        |
+| 0382     | B        |
+| 0390     | B        |
+| 0395     | B        |
+| 0380     | B        |
+| 0381     | B        |
+| 0382     | B        |
++----------+----------+
+B
+Correct
+
+Question 6
+Run a query to find the Effective Date (eff_date) or Salary End Date (sal_end_date) for grade Q90H0? The code has been started for you, but you will need to program the third through the sixth lines yourself before running the query. 
+
+Select
+grade,eff_date,sal_end_date
+from salary_range_by_job_classification
+where grade='Q90H0'
++-------+------------------------+------------------------+
+| Grade | Eff_Date               | Sal_End_Date           |
++-------+------------------------+------------------------+
+| Q90H0 | 12/26/2009 12:00:00 AM | 06/30/2010 12:00:00 AM |
++-------+------------------------+------------------------+
+What is the Effective Date (eff_date) for grade Q90H0? (include date and time)
+12/26/2009 12:00:00 AM
+Correct
+
+
+Question 7
+Sort the Biweekly low rate in ascending order. There is no starter code, as you need to write and run the query on your own. Hint: there are 4 lines to run this query.
+
+SELECT SetID, Biweekly_Low_Rate 
+from salary_range_by_job_classification
+order by Biweekly_Low_Rate asc
+
++-------+-------------------+
+| SetID | Biweekly_Low_Rate |
++-------+-------------------+
+| COMMN | $0.00             |
+| COMMN | $0.00             |
+| COMMN | $0.00             |
+| COMMN | $0.00             |
+| COMMN | $100.00           |
+| COMMN | $100.00           |
+| COMMN | $10059.00         |
+| COMMN | $10376.00         |
+| COMMN | $1052.00          |
+| COMMN | $10630.00         |
+| COMMN | $10843.00         |
+| COMMN | $1088.00          |
+| COMMN | $1112.00          |
+| COMMN | $11255.00         |
+| COMMN | $11405.00         |
+| COMMN | $1162.00          |
+| SFMTA | $12120.77         |
+| COMMN | $1280.00          |
+| COMMN | $1284.00          |
+| COMMN | $1298.00          |
+| COMMN | $1299.00          |
+| COMMN | $1381.00          |
+| COMMN | $1384.00          |
+| COMMN | $1405.00          |
+| COMMN | $1464.00          |
++-------+-------------------+
+(Output limit exceeded, 25 of 1356 total rows shown)
+Are these values properly sorted? 
+No
+
+Correct
+this is a varchar field. Here is what your query should have looked like:
+
+Select
+biweekly_low_rate
+From salary_range_by_job_classification
+order by biweekly_low_rate asc
+
+
+Question 8
+Write and run a query, with no starter code to answer this question: What Step are Job Codes 0110-0400? Hint: there are 6 lines to run this query.
+
+SELECT *
+from salary_range_by_job_classification
+where job_code between 0110 and 0400
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+| SetID | Job_Code | Eff_Date               | Sal_End_Date           | Salary_SetID | Sal_Plan | Grade | Step | Biweekly_High_Rate | Biweekly_Low_Rate | Union_Code | Extended_Step | Pay_Type |
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+| COMMN | 1107     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07490 | 1    | $3527.00           | $4286.00          | 351        | 0             | B        |
+| COMMN | 1110     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 1110F | 1    | $3282.00           | $3989.00          | 351        | 6             | B        |
+| COMMN | 1117     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 09495 | 1    | $9383.00           | $11405.00         | 351        | 0             | B        |
+| COMMN | 1118     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07930 | 1    | $4372.00           | $5315.00          | 351        | 0             | B        |
+| COMMN | 1120     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 08065 | 1    | $4672.00           | $5679.00          | 351        | 0             | B        |
+| COMMN | 1130     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06265 | 1    | $1941.00           | $2360.00          | 22         | 0             | B        |
+| COMMN | 1142     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07660 | 1    | $3836.00           | $4662.00          | 351        | 0             | B        |
+| COMMN | 1160     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07870 | 1    | $4246.00           | $5161.00          | 351        | 0             | B        |
+| COMMN | 1161     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07520 | 1    | $3581.00           | $4352.00          | 351        | 0             | B        |
+| COMMN | 1163     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 07805 | 1    | $4117.00           | $5005.00          | 351        | 0             | B        |
+| COMMN | 1164     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 09190 | 1    | $8081.00           | $9822.00          | 351        | 0             | B        |
+| COMMN | 1190     | 07/01/2009 12:00:00 AM | 09/04/2009 12:00:00 AM | COMMN        | SFM      | 1190F | 1    | $9726.38           | $9726.38          | 556        | 0             | B        |
+| COMMN | 1201     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06180 | 1    | $1862.00           | $2264.00          | 790        | 0             | B        |
+| COMMN | 1202     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 05975 | 1    | $1686.00           | $2048.00          | 790        | 0             | B        |
+| COMMN | 1203     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06455 | 1    | $2130.00           | $2589.00          | 22         | 0             | B        |
+| COMMN | 1204     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06275 | 1    | $1951.00           | $2371.00          | 790        | 0             | B        |
+| COMMN | 1209     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06090 | 1    | $1782.00           | $2166.00          | 790        | 0             | B        |
+| COMMN | 1210     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06440 | 1    | $2115.00           | $2571.00          | 790        | 0             | B        |
+| COMMN | 1218     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06960 | 1    | $2726.00           | $3313.00          | 790        | 0             | B        |
+| COMMN | 1220     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06260 | 1    | $1936.00           | $2354.00          | 790        | 0             | B        |
+| COMMN | 1222     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06450 | 1    | $2124.00           | $2582.00          | 790        | 0             | B        |
+| COMMN | 1224     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06650 | 1    | $2342.00           | $2847.00          | 790        | 0             | B        |
+| COMMN | 1226     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06760 | 1    | $2472.00           | $3005.00          | 790        | 0             | B        |
+| COMMN | 1227     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 06000 | 1    | $1706.00           | $2074.00          | 790        | 0             | B        |
+| COMMN | 1229     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 1229F | 1    | $3556.00           | $5283.00          | 1          | 0             | H        |
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+(Output limit exceeded, 25 of 540 total rows shown)
+1
+Correct
+
+
+Question 9
+Write and run a query, with no starter code or hints to answer this question: What is the Biweekly High Rate minus the
+Biweekly Low Rate for job Code 0170?
+
+Select (Biweekly_High_Rate - Biweekly_Low_Rate) AS difference  , job_code
+from salary_range_by_job_classification
+where job_code='0170' 
+
++------------+----------+
+| difference | Job_Code |
++------------+----------+
+|          0 | 0170     |
++------------+----------+
+
+0
+Correct
+
+
+Question 10
+
+Write and run a query, with no starter code or hints to answer this question: What is the Extended Step for Pay Types M, H, and D? 
+
+Select Extended_Step, JOB_CODE
+from salary_range_by_job_classification
+where Pay_Type IN ('M','H','D')
+
++---------------+----------+
+| Extended_Step | Job_Code |
++---------------+----------+
+| 0             | 0110     |
+| 0             | 0111     |
+| 0             | 0112     |
+| 0             | 0114     |
+| 0             | 0115     |
+| 0             | 0116     |
+| 0             | 0118     |
+| 0             | 1229     |
+| 0             | 3210     |
+| 0             | 7218     |
+| 0             | 7542     |
+| 0             | 8201     |
+| 0             | 9163     |
+| 0             | P103     |
+| 0             | P103     |
++---------------+----------+
+
+0
+Correct
+
+
+Question 11
+Write and run a query, with no starter code or hints to answer this question: What is the step for
+Union Code 990 and a Set ID of SFMTA or COMMN? 
+
+SELECT *
+FROM salary_range_by_job_classification
+WHERE Union_Code ='990' AND (SetID = 'SFMTA' OR SetID = 'COMMN')
+
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+| SetID | Job_Code | Eff_Date               | Sal_End_Date           | Salary_SetID | Sal_Plan | Grade | Step | Biweekly_High_Rate | Biweekly_Low_Rate | Union_Code | Extended_Step | Pay_Type |
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+| COMMN | 9989     | 07/01/2009 12:00:00 AM | 06/30/2010 12:00:00 AM | COMMN        | SFM      | 00000 | 1    | $0.00              | $0.00             | 990        | 0             | C        |
++-------+----------+------------------------+------------------------+--------------+----------+-------+------+--------------------+-------------------+------------+---------------+----------+
+1
+Correct
