@@ -24,6 +24,26 @@ if hrs>=40:
 else:
     print(hrs*rate)
     
+3.2
+hrs = input("Enter Hours:")
+rate=input("Enter Rate Per Hour:")
+try:
+    fhrs= float(hrs)
+    frate=float(rate)
+except:
+    print('Error,please enter numeric input')
+    quit()
+
+print(fhrs,frate)
+if fhrs>40:
+    reg=fhrs*frate
+    otp= (fhrs - 40.0) *(frate*0.5)
+    xp=reg+otp
+else:
+    xp=fhrs*frate
+print('Pay:',xp)
+
+    
  3.3 
  Write a program to prompt for a score between 0.0 and 1.0.
  If the score is out of range, print an error. 
