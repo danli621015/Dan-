@@ -94,6 +94,28 @@ def computepay(fhrs, frate):
 p = computepay(fhrs, frate)
 print("Pay", p)
 
+
+5.1
+num = 0
+tot = 0.0
+while True:
+    sval=input("enter a number:" )
+    if sval =='done':
+       break
+
+    try:
+       fval=float(sval)
+    except:
+       print('Invalid value')
+       continue
+
+    #print (fval)
+    num= num+1
+    tot= tot+fval
+
+print("all done")
+print(tot,num,tot/num)
+
 5.2 
 Write a program that repeatedly prompts a user for integer numbers until the user enters 'done'. 
 Once 'done' is entered, print out the largest and smallest of the numbers. 
